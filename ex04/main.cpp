@@ -6,7 +6,7 @@
 /*   By: svereten <svereten@student.42vienna.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 17:34:33 by svereten          #+#    #+#             */
-/*   Updated: 2025/04/22 20:09:45 by svereten         ###   ########.fr       */
+/*   Updated: 2025/04/22 20:16:56 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <iostream>
@@ -44,5 +44,8 @@ int	main(int argc, char **argv) {
 	s = argv[1];
 	s += ".replace";
 	outfile.open(s.c_str());
-	outfile << fileContent;
+	if (!(outfile << fileContent)) {
+		std::cerr << "File wrighting failure\n";
+	}
+
 }
