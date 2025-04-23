@@ -6,14 +6,14 @@
 #    By: svereten <svereten@student.42vienna.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/21 13:34:01 by svereten          #+#    #+#              #
-#    Updated: 2025/04/21 13:35:46 by svereten         ###   ########.fr        #
+#    Updated: 2025/04/23 12:16:25 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = BraiiiiiiinnnzzzZ
 
 CXX = c++
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP
 
 OBJ_DIR = obj
 
@@ -23,6 +23,7 @@ FILES = main \
 		randomChump \
 
 OBJS = ${FILES:%=${OBJ_DIR}/%.o}
+DEPS = ${FILES:%=${OBJ_DIR}/%.d}
 
 OBJ_DIRS = ${sort ${dir ${OBJS}}}
 
@@ -45,7 +46,12 @@ fclean: clean
 
 re: fclean all
 
+-include ${DEPS}
+
 run: ${NAME}
 	./${NAME}
+
+valgrind: ${NAME}
+	valgrind ./${NAME}
 
 .PHONY: all clean fclean re run
