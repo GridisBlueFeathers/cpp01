@@ -6,13 +6,15 @@
 /*   By: svereten <svereten@student.42vienna.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 17:34:33 by svereten          #+#    #+#             */
-/*   Updated: 2025/04/23 14:36:11 by svereten         ###   ########.fr       */
+/*   Updated: 2025/04/23 14:53:25 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <iostream>
 #include <fstream>
 #include <string>
-
+/**
+ * What if file has no \n
+ */
 int	main(int argc, char **argv) {
 	std::ifstream	inputfile;
 	std::ofstream	outfile;
