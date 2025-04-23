@@ -6,7 +6,7 @@
 /*   By: svereten <svereten@student.42vienna.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 17:34:33 by svereten          #+#    #+#             */
-/*   Updated: 2025/04/22 20:16:56 by svereten         ###   ########.fr       */
+/*   Updated: 2025/04/23 14:36:11 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <iostream>
@@ -33,7 +33,6 @@ int	main(int argc, char **argv) {
 		return (1);
 	}
 	inputfile.close();
-	fileContent.erase(fileContent.length(), 1);
 	while (fileContent.find(needle)) {
 		needle_idx = fileContent.find(needle);
 		if (static_cast<long>(needle_idx) < 0)
@@ -47,5 +46,5 @@ int	main(int argc, char **argv) {
 	if (!(outfile << fileContent)) {
 		std::cerr << "File wrighting failure\n";
 	}
-
+	outfile.close();
 }
