@@ -6,15 +6,13 @@
 /*   By: svereten <svereten@student.42vienna.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 17:34:33 by svereten          #+#    #+#             */
-/*   Updated: 2025/04/23 14:53:25 by svereten         ###   ########.fr       */
+/*   Updated: 2025/04/25 12:12:17 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <iostream>
 #include <fstream>
 #include <string>
-/**
- * What if file has no \n
- */
+
 int	main(int argc, char **argv) {
 	std::ifstream	inputfile;
 	std::ofstream	outfile;
@@ -28,6 +26,8 @@ int	main(int argc, char **argv) {
 	inputfile.open(argv[1]);
 	while (std::getline(inputfile, s)) {
 		fileContent += s;
+		if (inputfile.eof())
+			break ;
 		fileContent += "\n";
 	}
 	if (inputfile.bad() || !inputfile.eof()) {
@@ -35,7 +35,7 @@ int	main(int argc, char **argv) {
 		return (1);
 	}
 	inputfile.close();
-	while (fileContent.find(needle)) {
+	while (true) {
 		needle_idx = fileContent.find(needle);
 		if (static_cast<long>(needle_idx) < 0)
 			break ;
