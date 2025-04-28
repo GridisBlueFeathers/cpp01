@@ -6,14 +6,14 @@
 #    By: svereten <svereten@student.42vienna.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/22 17:31:59 by svereten          #+#    #+#              #
-#    Updated: 2025/04/25 12:56:23 by svereten         ###   ########.fr        #
+#    Updated: 2025/04/28 15:15:56 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = harl
 
 CXX = c++
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP -g
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP
 
 OBJ_DIR = obj
 
